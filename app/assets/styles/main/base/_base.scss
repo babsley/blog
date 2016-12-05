@@ -1,0 +1,29 @@
+@import "../variables";
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: $font-base;
+    font-size: $font-size-base;
+    background: $body-bg-base;
+    color: $font-color-base;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: $accent-color;
+    outline:none;
+}
+
+ul{
+    margin: 0;
+    padding:0;
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+}

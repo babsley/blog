@@ -1,0 +1,32 @@
+{
+  "port": "3000",
+  "db": {
+    "host": "sql7.freesqldatabase.com",
+    "database": "sql7147898",
+    "user": "sql7147898",
+    "password": "SbJIZjyYg3",
+    "port": "3306"
+  },
+  "session": {
+    "secret": "secret_key",
+    "key": "cid",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  },
+  "posts": {
+    "table": "posts",
+    "imgStorage": "images/",
+    "pathImgStorage": "/../public/",
+    "mimeTypes": [
+      "image/jpeg",
+      "image/png"
+    ]
+  },
+  "user": {
+    "table": "users",
+    "role": "user"
+  }
+}

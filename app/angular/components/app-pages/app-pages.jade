@@ -1,0 +1,21 @@
+.page-wrap
+    .page-intro
+        .container
+            .row
+                .col-md-12
+                    nav.nav
+                        ul
+                            li.nav_item
+                                a.nav-link(ng-href='#') Brand
+                            li.nav_item.nav_item--right
+                                a.nav-link(ng-href='#' ng-click='$ctrl.logout()')
+                                    i.icon.fa.fa-sign-out
+    main
+        ng-outlet
+
+footer.page-footer
+    .container
+        .row
+            .col-md-12
+                | © 2016
+
