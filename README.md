@@ -5,6 +5,8 @@
 - bower install
 - npm run start
 - open http://localhost:3000
+- login: admin pass: admin
+- login: user pass: user
 ```
 
 ## Описание задания :
