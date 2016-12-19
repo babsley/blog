@@ -5,7 +5,8 @@ const filesHelper = require('../helpers/files');
 const config = require('../config.json');
 const path = require('path');
 
-/*for (var i = 1; i < 11; i++) {
+/*
+for (var i = 1; i < 11; i++) {
     dbHelper.create({
         table: 'posts',
         data: {
@@ -14,7 +15,8 @@ const path = require('path');
             image: "img/content/" + i + ".jpg"
         }
     });
-}*/
+}
+*/
 
 
 class Posts {

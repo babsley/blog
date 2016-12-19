@@ -50,7 +50,7 @@ class Files {
 
             file = uuid.v4() + fileType;
 
-            pathFile = options.path + '\\' + file;
+            pathFile = options.path + '/' + file;
 
             options.file.mv(pathFile, function (err) {
                 if (err) {
