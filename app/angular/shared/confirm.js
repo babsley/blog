@@ -18,12 +18,12 @@
     function Ctrl() {
         this.fn = null;
         this.show = false;
-        this.open = (fn)=> {
+        this.open = (fn) => {
             this.fn = fn;
             this.show = true;
         };
 
-        this.confirm = ()=> {
+        this.confirm = () => {
             if (!this.fn) {
                 throw {
                     name: 'confirm component',
@@ -42,12 +42,14 @@
             this.show = false;
         };
 
-        this.cancel = ()=> {
+        this.cancel = () => {
             this.fn = null;
             this.show = false;
         };
 
-        this.callback = this.open;
+        this.$onInit = () => {
+            this.callback = this.open;
+        }
     }
 })();
 
