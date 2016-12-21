@@ -96,6 +96,7 @@ footer.page-footer {
   transform: translateY(-50%);
   font-size: 24px;
   color: #686d71;
+  will-change: transform;
   transition: all .4s ease;
 }
 
@@ -690,4 +691,40 @@ main {
 .not-found_msg {
   opacity: .7;
   margin: -40px 0 40px;
+}
+
+@media only screen and (max-width: 992px) {
+  .post-form .img-prew {
+    margin-top: 35px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .login {
+    min-width: 100%;
+  }
+
+  .login_form .form-input:focus + i {
+    left: 0;
+    opacity: 0;
+  }
+
+  .main-intro_btn .btn {
+    position: relative;
+    right: 0;
+    width: 100%;
+  }
+
+  .post-back {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pagin-item:not(:first-child) .pagin_btn {
+    margin-left: 1px;
+  }
+
+  .pagin_btn {
+    padding: 5px 12px;
+  }
 }

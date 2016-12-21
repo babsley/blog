@@ -1,654 +1,686 @@
 @import "main/variables";
+@import "main/mixin";
 @import "main/base/base";
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 .page-wrap {
-    min-height: 100%;
-    padding-bottom: 59px;
-    margin-bottom: -59px;
+  min-height: 100%;
+  padding-bottom: 59px;
+  margin-bottom: -59px;
 }
 
 footer.page-footer {
-    padding: 20px;
-    text-align: center;
-    background-color: $gray-light;
+  padding: 20px;
+  text-align: center;
+  background-color: $gray-light;
 }
 
 .login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 0 15px;
-    min-width: 400px;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0 15px;
+  min-width: 400px;
+  transform: translate(-50%, -50%);
+  @include respond-to(sm) {
+    min-width: 100%;
+  }
 }
 
 .form-label {
-    display: block;
+  display: block;
 }
 
 .login_form {
-    .form-label {
-        position: relative;
-        &:not(:first-child) {
-            .form-input {
-                border-top: solid 1px $gray-light;
-            }
+  .form-label {
+    position: relative;
+    &:not(:first-child) {
+      .form-input {
+        border-top: solid 1px $gray-light;
+      }
+    }
+  }
+  .form-input {
+    outline: none;
+    width: 100%;
+    background: transparent;
+    border: solid 1px transparent;
+    padding: 15px 20px 15px 45px;
+    position: relative;
+    transition: all .4s ease;
+
+    &:focus {
+      box-shadow: 0 0 6px 1px rgba(0, 0, 0, .1);
+      z-index: 1;
+      padding-left: 20px;
+
+      & + i {
+        color: lighten($gray-dark, 10%);
+        font-size: 38px;
+        left: 100%;
+        @include respond-to(sm) {
+          left: 0;
+          opacity: 0;
         }
+      }
     }
-    .form-input {
-        outline: none;
-        width: 100%;
-        background: transparent;
-        border: solid 1px transparent;
-        padding: 15px 20px 15px 45px;
-        position: relative;
-        transition: all .4s ease;
+  }
 
-        &:focus {
-            box-shadow: 0 0 6px 1px rgba(0, 0, 0, .1);
-            z-index: 1;
-            padding-left: 20px;
+  .icon {
+    position: absolute;
+    left: 0;
+    margin-left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: lighten($gray-dark, 20%);
+    will-change: transform;
+    transition: all .4s ease;
 
-            & + i {
-                color: lighten($gray-dark, 10%);
-                font-size: 38px;
-                left: 100%;
-            }
-        }
+  }
+
+  .btn {
+    width: 100%;
+    transition: all .4s ease;
+    &:disabled {
+      opacity: .5;
     }
-
-    .icon {
-        position: absolute;
-        left: 0;
-        margin-left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
-        color: lighten($gray-dark, 20%);
-        transition: all .4s ease;
-
-    }
-
-    .btn {
-        width: 100%;
-        transition: all .4s ease;
-        &:disabled {
-            opacity: .5;
-        }
-    }
+  }
 }
 
 .login-error {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 12px;
-    color: $warning-color;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: $warning-color;
 }
 
 .page-intro {
-    background: $secondary-color;
-    padding: 10px 0;
+  background: $secondary-color;
+  padding: 10px 0;
 }
 
 .nav_item {
-    float: left;
-    &--right {
-        float: right;
-    }
+  float: left;
+  &--right {
+    float: right;
+  }
 }
 
 .nav-link {
-    font-size: 18px;
-    color: #fff;
-    outline: none;
-    transition: all .4s ease;
-    &:hover {
-        color: $accent-color;
-    }
+  font-size: 18px;
+  color: #fff;
+  outline: none;
+  transition: all .4s ease;
+  &:hover {
+    color: $accent-color;
+  }
 }
 
 .page-header {
-    overflow: hidden;
-    min-height: 215px;
-    position: relative;
+  overflow: hidden;
+  min-height: 215px;
+  position: relative;
 
-    &:before {
-        content: '';
-        position: absolute;
-        background: url('../img/content/bg.jpg') center center no-repeat;
-        background-size: cover;
-        width: 140%;
-        height: 140%;
-        top: -20%;
-        left: -20%;
-        z-index: -2;
-        filter: blur(15px);
-    }
-    &:after {
-        content: '';
-        position: absolute;
-        background-color: $secondary-color;
-        opacity: .4;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-    }
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('../img/content/bg.jpg') center center no-repeat;
+    background-size: cover;
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
+    z-index: -2;
+    filter: blur(15px);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: $secondary-color;
+    opacity: .4;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
 
 }
 
 .page-header_heading {
-    color: $light-color;
-    font-size: 36px;
-    padding: 70px 0;
-    text-align: center;
-    font-weight: 100;
-    margin: 0;
+  color: $light-color;
+  font-size: 36px;
+  padding: 70px 0;
+  text-align: center;
+  font-weight: 100;
+  margin: 0;
 
-    p {
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 0;
-        font-size: 18px;
-    }
+  p {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-size: 18px;
+  }
 }
 
 .btn {
-    border: none;
-    outline: none;
-    font-size: 16px;
-    margin-top: 25px;
-    padding: 13px 26px;
-    transition: all .4s ease;
-    &--success {
-        background: $success-color;
-        color: $light-color;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-top: 25px;
+  padding: 13px 26px;
+  transition: all .4s ease;
+  &--success {
+    background: $success-color;
+    color: $light-color;
 
-        &:hover,
-        &:focus {
-            background: darken($success-color, 10%);
-        }
+    &:hover,
+    &:focus {
+      background: darken($success-color, 10%);
     }
-    &--warning {
-        background: $warning-color;
-        color: $light-color;
+  }
+  &--warning {
+    background: $warning-color;
+    color: $light-color;
 
-        &:hover,
-        &:focus {
-            background: darken($warning-color, 10%);
-        }
+    &:hover,
+    &:focus {
+      background: darken($warning-color, 10%);
     }
+  }
 }
 
 .clearfix {
-    &:before, &:after {
-        content: " ";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 main {
-    padding-bottom: 60px;
+  padding-bottom: 60px;
 }
 
 .main-intro_btn {
-    .btn {
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%);
-        margin-top: -10px;
-        .icon {
-            font-size: 20px;
-            margin-left: 10px;
-        }
+  .btn {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    margin-top: -10px;
+    .icon {
+      font-size: 20px;
+      margin-left: 10px;
     }
+
+    @include respond-to(sm){
+      position: relative;
+      right:0;
+      width: 100%;
+    }
+  }
 
 }
 
 .posts {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .posts-item {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .posts_post {
-    .post-wrap {
-        height: 350px;
-        position: relative;
-        overflow: hidden;
-        &:hover {
-            .post-control_link {
-                transform: scale(1);
-            }
-            .post-bg {
-                transform: scale(1.3) rotate(15deg);
-            }
-
-        }
-    }
-    .post-link {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        z-index: 1;
-    }
-
-    .post-heading {
-        background-color: rgba(0, 0, 0, .35);
-        position: absolute;
-        padding: 15px 20px;
-        max-height: 130px;
-        overflow: hidden;
-        line-height: 25px;
-        width: 100%;
-        font-size: 16px;
-        margin: 0;
-        bottom: 0;
-        z-index: 1;
-        pointer-events: none;
-        transition: all .4s ease;
-    }
-    .post-wrap {
-        position: relative;
-    }
-
-    .post-bg {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all .4s ease;
-        &:before {
-            opacity: .25;
-        }
+  .post-wrap {
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      .post-control_link {
+        transform: scale(1);
+      }
+      .post-bg {
+        transform: scale(1.3) rotate(15deg);
+      }
 
     }
+  }
+  .post-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .post-heading {
+    background-color: rgba(0, 0, 0, .35);
+    position: absolute;
+    padding: 15px 20px;
+    max-height: 130px;
+    overflow: hidden;
+    line-height: 25px;
+    width: 100%;
+    font-size: 16px;
+    margin: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: all .4s ease;
+  }
+  .post-wrap {
+    position: relative;
+  }
+
+  .post-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s ease;
+    &:before {
+      opacity: .25;
+    }
+
+  }
 }
 
 .post-heading {
-    color: $light-color;
-    line-height: 50px;
-    font-size: 40px;
-    margin: 0;
-    font-weight: 100;
-    padding: 70px 0;
-    text-align: center;
+  color: $light-color;
+  line-height: 50px;
+  font-size: 40px;
+  margin: 0;
+  font-weight: 100;
+  padding: 70px 0;
+  text-align: center;
 }
 
 .post-back {
-    background-color: darken($gray-light, 15%);
-    padding: 10px 25px;
-    color: $light-color;
-    margin-top: 15px;
-    display: inline-block;
-    float: right;
-    transition: all .4s ease;
-    &:hover {
-        background-color: $accent-color;
-    }
+  background-color: darken($gray-light, 15%);
+  padding: 10px 25px;
+  color: $light-color;
+  margin-top: 15px;
+  display: inline-block;
+  float: right;
+  transition: all .4s ease;
+  &:hover {
+    background-color: $accent-color;
+  }
+
+  @include respond-to(sm){
+    width:100%;
+    text-align: center;
+  }
 }
 
 .post-bg {
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    &:before {
-        background: $secondary-color;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        opacity: .55;
-    }
-}
-
-.post-item_post-control {
-    .post-control {
-        position: absolute;
-        top: 50%;
-        z-index: 2;
-        transform: translateY(-50%);
-        left: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .control-item {
-        display: inline-block;
-        &:nth-child(odd) .post-control_link {
-            transition-delay: .15s;
-        }
-    }
-}
-
-.post_post-control {
-    .post-control {
-        position: absolute;
-        top: 50%;
-        z-index: 2;
-        transform: translateY(-50%);
-        right: 0;
-    }
-    .control-item {
-        &:not(:first-child) {
-            .control-link {
-                margin-top: 10px;
-            }
-        }
-    }
-    .control-link {
-        opacity: .7;
-        &:hover {
-            opacity: 1;
-        }
-    }
-}
-
-.control-link {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    transition: all .4s ease;
-    background-color: $accent-color;
-    color: $light-color;
-
-    &:hover {
-        &:before {
-            background-color: $accent-color;
-            opacity: 1;
-        }
-        .icon {
-            color: $light-color;
-        }
-    }
-    .icon {
-
-        line-height: 50px;
-        transition: all .4s ease;
-    }
-}
-
-.post-control_link {
-    margin: 0 5px;
-    transform: scale(0);
-    background-color: transparent;
-
-    &:before {
-        position: absolute;
-        content: '';
-        background-color: $light-color;
-        transition: all .3s ease-out;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        opacity: .85;
-        z-index: -1;
-    }
-    .icon {
-        color: lighten($gray-dark, 15%);
-    }
-    &:hover {
-        &:before {
-            opacity: 1;
-        }
-    }
-}
-
-.post-txt {
-    margin-top: 60px;
-    line-height: 28px;
-    text-align: justify;
-}
-
-.heading {
-    font-size: 36px;
-    text-transform: uppercase;
-    font-weight: 100;
-    margin: 60px 0;
-    &--dashed {
-        padding-bottom: 20px;
-        border-bottom: dashed 1px $gray-light;
-    }
-}
-
-.pagin {
-    text-align: center;
-}
-
-.pagin-item {
-    display: inline-block;
-    &:not(:first-child) {
-        .pagin_btn {
-            margin-left: 10px;
-        }
-    }
-}
-
-.pagin_btn {
-    background-color: lighten($gray-dark, 25%);
-    padding: 7px 14px;
-    text-align: center;
-    color: $light-color;
-    transition: all .4s ease;
-
-    &:hover {
-        background-color: lighten($secondary-color, 15%);
-    }
-
-    &:disabled {
-        background-color: darken($gray-light, 10%);
-    }
-
-    &.active {
-        background-color: $accent-color;
-    }
-}
-
-.post-form.ng-submitted {
-    .ng-invalid .fake-input {
-        color: $warning-color;
-        border-color: $warning-color;
-        &:hover {
-            color: $light-color;
-            border-color: $gray-dark;
-            background-color: $gray-dark;
-        }
-    }
-    .ng-invalid.form-txt {
-        border-color: $warning-color;
-    }
-
-}
-
-.post-form {
-    .btn {
-        margin: 0 5px;
-    }
-    .img-prew {
-        max-height: 442px;
-    }
-
-    input[type="file"] {
-        height: 0;
-        font-size: 0;
-        border: none;
-        width: 0;
-        position: absolute;
-        outline: none;
-        &:focus + .ng-transclude .fake-input {
-            color: $light-color;
-            border-color: $gray-dark;
-            background-color: $gray-dark;
-        }
-    }
-    label {
-        position: relative;
-        display: block;
-        &:not(:first-child) {
-            margin-top: 30px;
-        }
-        &:last-child {
-            margin-top: 0;
-        }
-    }
-
-    .fake-input {
-        text-transform: uppercase;
-        position: relative;
-        padding: 15px 15px;
-        margin-top: 20px;
-        text-align: center;
-        cursor: pointer;
-        border: dashed 1px darken($gray-light, 10%);
-        transition: all .4s ease;
-
-        .error-message {
-            top: -20px;
-            text-transform: none;
-        }
-        .icon {
-            margin-right: 10px;
-        }
-
-        &:hover {
-            color: $light-color;
-            border-color: $gray-dark;
-            background-color: $gray-dark;
-        }
-
-    }
-    .error-message {
-        font-size: 12px;
-        position: absolute;
-        bottom: 100%;
-        top: -25px;
-        left: 0;
-        color: $warning-color;
-        opacity: 0;
-        transition: all .4s ease;
-
-        &.show {
-            opacity: 1;
-        }
-    }
-    .form-txt:focus {
-        border-color: $gray-dark;
-    }
-}
-
-.form-txt {
-    border: solid 1px darken($gray-light, 10%);
-    width: 100%;
-    outline: none;
-    resize: none;
-    min-height: 150px;
-    line-height: 24px;
-    padding: 10px 15px;
-    transition: all .4s ease;
-    &.ng-touched.ng-invalid {
-        border-color: $warning-color;
-    }
-    &:focus,
-    &.ng-touched.ng-invalid:focus {
-        border-color: $gray-dark;
-    }
-
-    &--dashed {
-        border-style: dashed;
-    }
-    &--big {
-        min-height: 250px;
-    }
-    &--small {
-        min-height: 70px;
-    }
-}
-
-.post-form_control {
-    margin-top: 60px;
-    text-align: center;
-}
-
-.remove-file {
-    margin-right: 10px;
-}
-
-.file-name {
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    padding-right: 10px;
-    text-overflow: ellipsis;
-}
-
-.popup {
-    position: fixed;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  &:before {
+    background: $secondary-color;
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(#000, .75);
+    z-index: 0;
+    opacity: .55;
+  }
+}
+
+.post-item_post-control {
+  .post-control {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .control-item {
+    display: inline-block;
+    &:nth-child(odd) .post-control_link {
+      transition-delay: .15s;
+    }
+  }
+}
+
+.post_post-control {
+  .post-control {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    right: 0;
+  }
+  .control-item {
+    &:not(:first-child) {
+      .control-link {
+        margin-top: 10px;
+      }
+    }
+  }
+  .control-link {
+    opacity: .7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.control-link {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  transition: all .4s ease;
+  background-color: $accent-color;
+  color: $light-color;
+
+  &:hover {
+    &:before {
+      background-color: $accent-color;
+      opacity: 1;
+    }
+    .icon {
+      color: $light-color;
+    }
+  }
+  .icon {
+
+    line-height: 50px;
+    transition: all .4s ease;
+  }
+}
+
+.post-control_link {
+  margin: 0 5px;
+  transform: scale(0);
+  background-color: transparent;
+
+  &:before {
+    position: absolute;
+    content: '';
+    background-color: $light-color;
+    transition: all .3s ease-out;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .85;
+    z-index: -1;
+  }
+  .icon {
+    color: lighten($gray-dark, 15%);
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+.post-txt {
+  margin-top: 60px;
+  line-height: 28px;
+  text-align: justify;
+}
+
+.heading {
+  font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 100;
+  margin: 60px 0;
+  &--dashed {
+    padding-bottom: 20px;
+    border-bottom: dashed 1px $gray-light;
+  }
+}
+
+.pagin {
+  text-align: center;
+}
+
+.pagin-item {
+  display: inline-block;
+  &:not(:first-child) {
+    .pagin_btn {
+      margin-left: 10px;
+      @include respond-to(sm) {
+        margin-left: 1px;
+      }
+    }
+  }
+}
+
+.pagin_btn {
+  background-color: lighten($gray-dark, 25%);
+  padding: 7px 14px;
+  text-align: center;
+  color: $light-color;
+  transition: all .4s ease;
+
+  &:hover {
+    background-color: lighten($secondary-color, 15%);
+  }
+
+  &:disabled {
+    background-color: darken($gray-light, 10%);
+  }
+
+  @include respond-to(sm) {
+    padding: 5px 12px;
+  }
+;
+
+  &.active {
+    background-color: $accent-color;
+  }
+}
+
+.post-form.ng-submitted {
+  .ng-invalid .fake-input {
+    color: $warning-color;
+    border-color: $warning-color;
+    &:hover {
+      color: $light-color;
+      border-color: $gray-dark;
+      background-color: $gray-dark;
+    }
+  }
+  .ng-invalid.form-txt {
+    border-color: $warning-color;
+  }
+
+}
+
+.post-form {
+  .btn {
+    margin: 0 5px;
+  }
+  .img-prew {
+    max-height: 442px;
+
+    @include respond-to(md){
+      margin-top: 35px;
+    }
+  }
+
+  input[type="file"] {
+    height: 0;
+    font-size: 0;
+    border: none;
+    width: 0;
+    position: absolute;
+    outline: none;
+    &:focus + .ng-transclude .fake-input {
+      color: $light-color;
+      border-color: $gray-dark;
+      background-color: $gray-dark;
+    }
+  }
+  label {
+    position: relative;
+    display: block;
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+    &:last-child {
+      margin-top: 0;
+    }
+  }
+
+  .fake-input {
+    text-transform: uppercase;
+    position: relative;
+    padding: 15px 15px;
+    margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: dashed 1px darken($gray-light, 10%);
+    transition: all .4s ease;
+
+    .error-message {
+      top: -20px;
+      text-transform: none;
+    }
+    .icon {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      color: $light-color;
+      border-color: $gray-dark;
+      background-color: $gray-dark;
+    }
+
+  }
+  .error-message {
+    font-size: 12px;
+    position: absolute;
+    bottom: 100%;
+    top: -25px;
+    left: 0;
+    color: $warning-color;
     opacity: 0;
     transition: all .4s ease;
-    z-index: -100;
 
-    &.open {
-        opacity: 1;
-        z-index: 100;
+    &.show {
+      opacity: 1;
     }
+  }
+  .form-txt:focus {
+    border-color: $gray-dark;
+  }
+}
+
+.form-txt {
+  border: solid 1px darken($gray-light, 10%);
+  width: 100%;
+  outline: none;
+  resize: none;
+  min-height: 150px;
+  line-height: 24px;
+  padding: 10px 15px;
+  transition: all .4s ease;
+  &.ng-touched.ng-invalid {
+    border-color: $warning-color;
+  }
+  &:focus,
+  &.ng-touched.ng-invalid:focus {
+    border-color: $gray-dark;
+  }
+
+  &--dashed {
+    border-style: dashed;
+  }
+  &--big {
+    min-height: 250px;
+  }
+  &--small {
+    min-height: 70px;
+  }
+}
+
+.post-form_control {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.remove-file {
+  margin-right: 10px;
+}
+
+.file-name {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 10px;
+  text-overflow: ellipsis;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, .75);
+  opacity: 0;
+  transition: all .4s ease;
+  z-index: -100;
+
+  &.open {
+    opacity: 1;
+    z-index: 100;
+  }
 }
 
 .popup-content {
-    position: absolute;
-    top: 50%;
-    color: $light-color;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    left: 50%;
+  position: absolute;
+  top: 50%;
+  color: $light-color;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  left: 50%;
 }
 
 .popup-title {
-    font-size: 36px;
-    margin: 0;
-    font-weight: 700;
+  font-size: 36px;
+  margin: 0;
+  font-weight: 700;
 }
 
 .not-found {
-    position: relative;
-    text-align: center;
+  position: relative;
+  text-align: center;
 }
 
 .not-found_title {
-    font-size: 250px;
-    font-weight: 700;
-    margin: 0;
-    color: darken($gray-light, 5%);
+  font-size: 250px;
+  font-weight: 700;
+  margin: 0;
+  color: darken($gray-light, 5%);
 }
 
 .not-found_msg {
-    opacity: .7;
-    margin: -40px 0 40px;
+  opacity: .7;
+  margin: -40px 0 40px;
 }
