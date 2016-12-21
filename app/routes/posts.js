@@ -6,17 +6,14 @@ const middleware = require('../middleware');
 
 
 module.exports = (router) => {
-
     router.route('/api/posts/:id')
         .get(middleware.checkRole([1, 2]), (req, res) => {
             ctrl.getOne(req, res);
         })
-
-        .put((req, res) => {
+        .put(middleware.checkRole(1), (req, res) => {
             ctrl.update(req, res);
         })
-
-        .delete((req, res) => {
+        .delete(middleware.checkRole(1), (req, res) => {
             ctrl.remove(req, res);
         });
 
@@ -24,7 +21,7 @@ module.exports = (router) => {
         .get(middleware.checkRole([1, 2]), (req, res) => {
             ctrl.getOrderList(req, res);
         })
-        .post(middleware.checkRole([1, 2]), (req, res) => {
+        .post(middleware.checkRole(1), (req, res) => {
             ctrl.create(req, res);
         })
 };
