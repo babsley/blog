@@ -1,5 +1,5 @@
-const src = './app';
-const dest = './app/public/app';
+const src = './client';
+const dest = './public/';
 module.exports = {
     src: src,
     dest: dest,

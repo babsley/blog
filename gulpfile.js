@@ -5,8 +5,6 @@ const paths = require('./gulp/paths');
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')(config.gulpLoadPlugins);
 
-console.log($);
-
 // require task
 function lazyRequireTask(taskName, options) {
     options = options || {};

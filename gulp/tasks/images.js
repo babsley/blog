@@ -9,7 +9,7 @@ module.exports = function (options) {
         return $.combiner.obj(
             gulp.src(options.src),
             $.newer(options.dest),
-            $.imagemin(),
+            // $.imagemin(),
             gulp.dest(options.dest)
         ).on('error', $.notify.onError(function (err) {
                 return {
