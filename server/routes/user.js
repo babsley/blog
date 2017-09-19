@@ -1,5 +1,4 @@
 'use strict';
-
 const userModel = require('../models/user');
 
 module.exports = function (router) {
@@ -37,7 +36,7 @@ module.exports = function (router) {
         res.send(401);
       }
 
-      userModel.login(name)
+      userModel.getUserByName(name)
         .then(function (data) {
           try {
             const user = data[0];

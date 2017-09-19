@@ -7,13 +7,6 @@
     "password": "root",
     "port": "3306"
   },
-  "dbs": {
-    "host": "db4free.net",
-    "database": "syberry",
-    "user": "syberry",
-    "password": "syberry",
-    "port": "3306"
-  },
   "files": {
     "path": "./uploads/"
   },

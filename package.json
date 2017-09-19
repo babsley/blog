@@ -8,7 +8,7 @@
     "serve": "nodemon server/index.js",
     "dev": "concurrently \"npm run serve\" \"npm run gulp\"",
     "gulp": "node_modules/gulp/bin/gulp.js dev",
-    "watch":"node_modules/gulp/bin/gulp.js watch",
+    "watch": "node_modules/gulp/bin/gulp.js watch",
     "build": "node_modules/gulp/bin/gulp.js build --production"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "mkdirp": "^0.5.1",
     "mysql": "^2.11.1",
     "node-uuid": "^1.4.7",
+    "pino": "^4.7.2",
     "uuid": "^2.0.3"
   },
   "devDependencies": {
