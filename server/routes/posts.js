@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require('../config.json');
-const pino = require('pino');
+const pino = require('pino')();
 const middleware = require('../middleware/index');
 const postsModel = require('../models/posts');
 const filesModel = require('../models/files');
@@ -133,7 +133,7 @@ module.exports = function (router) {
     });
 
   router.route('/api/posts')
-    .get(middleware.auth([1, 2]), function (req, res) {
+    .get(function (req, res) {
       getOrderList(req, res);
     })
     .post(middleware.auth(1), function (req, res) {

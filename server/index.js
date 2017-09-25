@@ -9,10 +9,12 @@ const knex = require('./knex');
 const knexSessionStore = require('connect-session-knex')(session);
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const store = new knexSessionStore({knex: knex, tablename: 'sessions'});
 const routes = require('./routes/index')();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(fileUploader());
 app.use(cookieParser());
@@ -26,6 +28,7 @@ app.use(session({
 app.use(routes);
 app.use(express.static(path.join(__dirname + '/../uploads')));
 app.use(express.static(path.join(__dirname + '/../public')));
+
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname + '/../public/index.html'));

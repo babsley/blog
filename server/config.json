@@ -1,5 +1,5 @@
 {
-  "port": "3000",
+  "port": "5000",
   "db": {
     "host": "127.0.0.1",
     "database": "syberry",

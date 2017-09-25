@@ -1,10 +1,18 @@
+@import "vendors";
 @import "main/variables";
 @import "main/mixin";
 @import "main/base/base";
+@import "main/preloader";
+
+* {
+  box-sizing: border-box;
+}
 
 html,
-body {
+body,
+.app {
   height: 100%;
+  font-family: "Open Sans", sans-serif;
 }
 
 .page-wrap {
@@ -129,7 +137,7 @@ footer.page-footer {
   &:before {
     content: '';
     position: absolute;
-    background: url('../img/bg.jpg') center center no-repeat;
+    background: url('../images/bg.jpg') center center no-repeat;
     background-size: cover;
     width: 140%;
     height: 140%;
@@ -221,9 +229,9 @@ main {
       margin-left: 10px;
     }
 
-    @include respond-to(sm){
+    @include respond-to(sm) {
       position: relative;
-      right:0;
+      right: 0;
       width: 100%;
     }
   }
@@ -318,8 +326,8 @@ main {
     background-color: $accent-color;
   }
 
-  @include respond-to(sm){
-    width:100%;
+  @include respond-to(sm) {
+    width: 100%;
     text-align: center;
   }
 }
@@ -518,7 +526,7 @@ main {
   .img-prew {
     max-height: 442px;
 
-    @include respond-to(md){
+    @include respond-to(md) {
       margin-top: 35px;
     }
   }
